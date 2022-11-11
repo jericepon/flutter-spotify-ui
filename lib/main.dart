@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:flutter_spotify_ui/screens/home_screen.dart';
+import 'package:flutter_spotify_ui/screens/get_started_screen.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +24,7 @@ class _AppState extends State<App> {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.green,
       ),
-      home: const HomeScreen(),
+      home: const GetStartedScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
