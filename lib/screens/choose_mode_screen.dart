@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spotify_ui/constants/colors.dart';
 import 'package:flutter_spotify_ui/constants/spaces.dart';
-import 'package:flutter_spotify_ui/screens/choose_mode_screen.dart';
+import 'package:flutter_spotify_ui/widgets/blurred_mode_button.dart';
 import 'package:flutter_spotify_ui/widgets/onboarding_large_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class GetStartedScreen extends StatelessWidget {
-  const GetStartedScreen({super.key});
+class ChooseModeScreen extends StatelessWidget {
+  const ChooseModeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class GetStartedScreen extends StatelessWidget {
         height: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/get_started_bg.png'),
+            image: AssetImage('assets/images/choose_mode_bg.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -39,32 +39,35 @@ class GetStartedScreen extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.only(bottom: 26),
                     child: Text(
-                      'Enjoy listening to music',
+                      'Choose mode',
                       style: GoogleFonts.raleway(
                         textStyle: const TextStyle(
                           color: Colors.white,
-                          fontSize: 25,
+                          fontSize: 22,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
                   ),
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 49),
-                    child: SizedBox(
-                      width: 297,
-                      child: Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis enim purus sed phasellus. Cursus ornare id scelerisque aliquam.',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.raleway(
-                          textStyle: const TextStyle(
-                            color: Color.fromRGBO(121, 121, 121, 1),
-                            fontSize: 17,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
+                  const SizedBox(
+                    height: 36,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      BlurredModeButton(
+                        svg: 'assets/svg/moon.svg',
                       ),
-                    ),
+                      SizedBox(
+                        width: 71,
+                      ),
+                      BlurredModeButton(
+                        svg: 'assets/svg/sun.svg',
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 71,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
@@ -73,15 +76,9 @@ class GetStartedScreen extends StatelessWidget {
                       left: kHorizontalSpace,
                     ),
                     child: OnboardingLargeButton(
-                      buttonText: 'Get Started',
+                      onPressed: () {},
                       buttonColor: kPrimaryColor,
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const ChooseModeScreen(),
-                          ),
-                        );
-                      },
+                      buttonText: 'Continue',
                     ),
                   ),
                 ],

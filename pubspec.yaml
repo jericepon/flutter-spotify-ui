@@ -39,6 +39,8 @@ dependencies:
   flutter_native_splash: ^2.2.14
   blur: ^3.1.0
   google_fonts: 3.0.1
+  flutter_svg: ^1.1.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -64,6 +66,7 @@ flutter:
   assets:
     - google_fonts/
     - assets/images/
+    - assets/svg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
