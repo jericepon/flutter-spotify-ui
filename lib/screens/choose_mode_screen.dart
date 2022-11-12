@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spotify_ui/constants/colors.dart';
 import 'package:flutter_spotify_ui/constants/spaces.dart';
+import 'package:flutter_spotify_ui/screens/register_sign_in_screen.dart';
 import 'package:flutter_spotify_ui/widgets/blurred_mode_button.dart';
-import 'package:flutter_spotify_ui/widgets/onboarding_large_button.dart';
+import 'package:flutter_spotify_ui/widgets/app_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ChooseModeScreen extends StatelessWidget {
@@ -69,16 +70,29 @@ class ChooseModeScreen extends StatelessWidget {
                   const SizedBox(
                     height: 71,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      right: kHorizontalSpace,
-                      bottom: 69,
-                      left: kHorizontalSpace,
-                    ),
-                    child: OnboardingLargeButton(
-                      onPressed: () {},
-                      buttonColor: kPrimaryColor,
-                      buttonText: 'Continue',
+                  SizedBox(
+                    width: double.infinity,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        right: kHorizontalSpace,
+                        bottom: 69,
+                        left: kHorizontalSpace,
+                      ),
+                      child: AppButton(
+                        size: 'large',
+                        height: 92,
+                        width: double.infinity,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const RegisterSignInScreen(),
+                            ),
+                          );
+                        },
+                        buttonColor: kPrimaryColor,
+                        buttonText: 'Continue',
+                      ),
                     ),
                   ),
                 ],

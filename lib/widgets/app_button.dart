@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class OnboardingLargeButton extends StatelessWidget {
-  const OnboardingLargeButton(
+class AppButton extends StatelessWidget {
+  const AppButton(
       {Key? key,
+      this.size,
+      required this.height,
+      required this.width,
       required this.buttonText,
       this.onPressed,
       required this.buttonColor})
       : super(key: key);
+  final String? size;
+  final double height;
+  final double width;
   final String buttonText;
   final Color buttonColor;
   final Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
-      height: 92,
+      width: height,
+      height: height,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
+          elevation: MaterialStateProperty.all(0),
           backgroundColor: MaterialStateProperty.all<Color>(buttonColor),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
@@ -29,10 +36,10 @@ class OnboardingLargeButton extends StatelessWidget {
         child: Text(
           buttonText,
           style: GoogleFonts.raleway(
-            textStyle: const TextStyle(
+            textStyle: TextStyle(
               color: Colors.white,
-              fontWeight: FontWeight.w700,
-              fontSize: 23,
+              fontWeight: size == 'large' ? FontWeight.w700 : FontWeight.w500,
+              fontSize: size == 'large' ? 23 : 19,
             ),
           ),
         ),

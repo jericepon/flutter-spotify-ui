@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spotify_ui/constants/colors.dart';
 import 'package:flutter_spotify_ui/constants/spaces.dart';
 import 'package:flutter_spotify_ui/screens/choose_mode_screen.dart';
-import 'package:flutter_spotify_ui/widgets/onboarding_large_button.dart';
+import 'package:flutter_spotify_ui/widgets/app_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GetStartedScreen extends StatelessWidget {
@@ -66,22 +66,28 @@ class GetStartedScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      right: kHorizontalSpace,
-                      bottom: 69,
-                      left: kHorizontalSpace,
-                    ),
-                    child: OnboardingLargeButton(
-                      buttonText: 'Get Started',
-                      buttonColor: kPrimaryColor,
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const ChooseModeScreen(),
-                          ),
-                        );
-                      },
+                  SizedBox(
+                    width: double.infinity,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        right: kHorizontalSpace,
+                        bottom: 69,
+                        left: kHorizontalSpace,
+                      ),
+                      child: AppButton(
+                        size: 'large',
+                        height: 92,
+                        width: double.infinity,
+                        buttonText: 'Get Started',
+                        buttonColor: kPrimaryColor,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const ChooseModeScreen(),
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ],
